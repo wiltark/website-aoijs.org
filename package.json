@@ -1,46 +1,43 @@
 {
-  "name": "aoi.js-website",
-  "version": "0.3.0",
-  "description": "Offical aoi.js Documentation.",
-  "main": "index.js",
-  "type": "module",
+  "name": "galactic-galaxy",
+  "version": "1.0.0",
+  "description": "",
   "scripts": {
-    "dev": "astro dev",
-    "format": "prettier -w --cache --plugin prettier-plugin-astro .",
-    "check": "astro check",
-    "prebuild": "astro build",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "start": "prettier -w --cache --plugin prettier-plugin-astro . && astro build && astro preview"
+    "build:examples": "pnpm --no-bail --workspace-concurrency 1 --filter '@example/*' build",
+    "size": "size-limit",
+    "version": "pnpm changeset version && pnpm i --no-frozen-lockfile",
+    "format": "prettier -w --cache --plugin prettier-plugin-astro ."
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@astrojs/check": "^0.5.6",
-    "@astrojs/markdown-remark": "^4.2.1",
-    "@astrojs/mdx": "^2.1.1",
-    "@astrojs/node": "^8.2.3",
-    "@astrojs/react": "^3.0.10",
-    "@astrojs/sitemap": "^3.1.1",
-    "@astrojs/starlight": "^0.21.0",
-    "@docsearch/css": "^3.5.2",
-    "@docsearch/js": "^3.5.2",
-    "@fontsource/poppins": "^5.0.8",
-    "@types/react": "^18.2.21",
-    "@types/react-dom": "^18.2.7",
-    "astro": "^4.4.9",
-    "node-fetch": "^3.3.2",
-    "p-retry": "^6.1.0",
-    "prettier-plugin-astro": "^0.12.1",
-    "react": "^18.2.0",
-    "rehype-autolink-headings": "^6.1.1",
-    "sharp": "^0.32.5",
-    "shiki": "^0.14.5",
-    "starlight-links-validator": "^0.5.3",
-    "typescript": "^5.3.3"
-  },
+  "license": "MIT",
   "devDependencies": {
-    "markdown-link-check": "^3.11.2"
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.1",
+    "@size-limit/file": "^8.2.4",
+    "astro": "^4.3.5",
+    "prettier": "^3.0.0",
+    "prettier-plugin-astro": "^0.13.0",
+    "size-limit": "^8.2.4"
+  },
+  "packageManager": "pnpm@8.7.4",
+  "size-limit": [
+    {
+      "name": "/index.html",
+      "path": "examples/basics/dist/index.html",
+      "limit": "10 kB"
+    },
+    {
+      "name": "/_astro/*.js",
+      "path": "examples/basics/dist/_astro/*.js",
+      "limit": "22.5 kB"
+    },
+    {
+      "name": "/_astro/*.css",
+      "path": "examples/basics/dist/_astro/*.css",
+      "limit": "14 kB"
+    }
+  ],
+  "dependencies": {
+    "@astrojs/check": "^0.5.10",
+    "typescript": "^5.4.5"
   }
 }
